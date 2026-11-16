@@ -1,0 +1,26 @@
+{
+  "dataset_id": "6165f45b-ca93-5bb5-9d06-db29c692a360",
+  "source_version": "2026-10-30T18:00:00+00:00",
+  "release": "pi-dataset-october-2026-release",
+  "url": "https://download.medicaid.gov/data/pi-dataset-october-2026-release.csv",
+  "file": "pi-dataset-october-2026-release.csv",
+  "bytes": 4528149,
+  "sha256": "ff5f49d7f01b620b6ac1f3e93fff6e453266471391948cd5a4efada800cfdb06",
+  "retrieved_at_utc": "2026-11-03T16:49:05.850112+00:00",
+  "license": "https://www.usa.gov/government-works",
+  "http_headers": {
+    "ETag": "\"95606c3d6d9918566ee558de53a5120d:1792756916.632717\"",
+    "Last-Modified": "Fri, 23 Oct 2026 12:01:56 GMT",
+    "Content-Length": "431738",
+    "Content-Type": "application/octet-stream"
+  },
+  "max_download_bytes": 33554432,
+  "source-metadata.json": {
+    "bytes": 2158,
+    "sha256": "2f26878e4abfd94d1ae1c1ba28eaff3d99f43d2bdc39c883097b081d34ab7dd7"
+  },
+  "source-dictionary.json": {
+    "bytes": 18840,
+    "sha256": "5165e5c350cef3cbc697d88b6e623b62100cdbf6bcd34d07ed939d8abec4aa92"
+  }
+}

@@ -1,0 +1,10 @@
+data/
+artifacts*/
+__pycache__/
+.pytest_cache/
+.venv/
+*.partial
+evidence/*cache*/
+evidence/consumer/*cache*/
+evidence/consumer-final/*cache*/
+test-tmp/

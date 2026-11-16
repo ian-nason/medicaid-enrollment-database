@@ -1,0 +1,10 @@
+{
+  "checked_date": "2026-11-16",
+  "integration_tests": 15,
+  "source_rows_compared": 11220,
+  "source_cells_compared": 493680,
+  "mismatches": 0,
+  "exact_null_count_columns": 47,
+  "artifact_sha256": "758abed5548e1cd9ec1f4e0944d17e4f263ca3daf63a08214d534dddf9a85418",
+  "source_unchanged_since_build": true
+}

@@ -1,0 +1,4 @@
+# Preserve exact source snapshots and validation receipts, including line endings.
+* -text
+# Console tables and R warnings contain intentional spacing; retain exact output.
+*.log -whitespace

@@ -1,0 +1,30 @@
+repo: Nason/medicaid-enrollment-database
+file: medicaid-enrollment.duckdb
+pretty_name: CMS Medicaid and CHIP enrollment
+license: other
+license_name: us-government-public-domain
+license_link: https://www.usa.gov/government-works
+tags: [medicaid, chip, enrollment, health-policy, public-data, duckdb]
+size_category: 10K<n<100K
+alias: db
+intro: |
+  LOCAL UNPUBLISHED CANDIDATE. CMS October 30, 2026 release: 11,220 state/period/report
+  observations and 44 field definitions. Monthly records cover June 2017-July 2026
+  across 50 states and DC, plus a July-September 2013 baseline average.
+  Preliminary and updated versions coexist and must not be pooled.
+quick_start_sql: |
+  SELECT state_abbreviation, total_medicaid_and_chip_enrollment,
+         total_medicaid_and_chip_enrollment_footnotes
+  FROM db.monthly_preliminary WHERE reporting_period = '202607'
+  ORDER BY state_abbreviation LIMIT 5;
+footer: |
+  Proposed hosting links are not live. Publish only with separate authorization.
+  Enrollment is a month-end stock subject to retained state footnotes; source code
+  201309 is a July-September 2013 average and has NULL reporting_month. Monthly
+  updated and preliminary views remain separate. Numeric zeros with system-limit
+  footnotes are retained as reported, not treated as verified absence. Blank cells
+  become NULL. See README.md, FIELD-GUIDE.md, DICTIONARY.md and source-lock.json.
+  Official source: https://data.medicaid.gov/dataset/6165f45b-ca93-5bb5-9d06-db29c692a360
+  Pinned CSV: https://download.medicaid.gov/data/pi-dataset-october-2026-release.csv
+  Retrieved November 3, 2026; source CSV SHA-256:
+  ff5f49d7f01b620b6ac1f3e93fff6e453266471391948cd5a4efada800cfdb06.
