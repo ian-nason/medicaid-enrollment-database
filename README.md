@@ -53,6 +53,28 @@ dbDisconnect(con, shutdown=TRUE)
 
 The real released **Python datapond 0.1.5** and **R datapond 0.1.0** clients are additionally exercised by `run_smoke.py` against a loopback-only HTTP range server and temporary registry. The tests use the intended id, remote attachment, dictionary discovery, counts, baseline handling and the official July total. Since these releases lack startup configuration arguments, the smoke harness adapts only their real DuckDB connection defaults to one thread and 128 MiB; query results and HTTP operations are not mocked. The Python HTTP extension is cached in the workspace. R uses its existing extension installation.
 
+### Python with DuckDB
+
+Install once with `python -m pip install duckdb`.
+
+```python
+import duckdb
+con = duckdb.connect(config={"memory_limit": "128MiB", "threads": 1,
+                             "max_temp_directory_size": "0B"})
+try:
+    con.execute("INSTALL httpfs; LOAD httpfs;")
+    con.execute("ATTACH 'https://huggingface.co/datasets/Nason/medicaid-enrollment-database/resolve/main/medicaid-enrollment.duckdb' AS db (READ_ONLY)")
+    print(con.execute("SELECT state_abbreviation, total_medicaid_and_chip_enrollment, total_medicaid_and_chip_enrollment_footnotes FROM db.monthly_preliminary WHERE reporting_period='202607' ORDER BY state_abbreviation LIMIT 5").fetchall())
+finally:
+    con.close()
+```
+
+These URLs follow the latest publication. For reproducible results, use the immutable
+`attach_url` in the [Datapond registry](https://github.com/datapond-db/registry/blob/main/registry.json)
+and record the revision. HTTP range queries execute locally and may transfer much of
+the database; `LIMIT` does not guarantee a small scan. The buffer limit is not a total
+process-memory cap; with spill disabled, larger queries may fail.
+
 ## Rebuild and validate
 
 Install the pinned dependencies in `pyproject.toml` with uv. From this repository:
